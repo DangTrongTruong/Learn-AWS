@@ -1,0 +1,13 @@
+🏃🏼‍♀️ Lab document
+1. Tạo thư mục
+mkidr hanoi
+2. Xem thư mục
+ls hanoi
+3. copy toàn bộ file & thư mục tới một thư mục khác
+cp -Rf hanoi/* haiphong
+4. Kiểm tra đường dẫn thư mục
+pwd
+5. Xem lịch sử đã thao tác trên server
+history
+6. Xóa toàn bộ file và thư mục
+rm -Rf hanoi
