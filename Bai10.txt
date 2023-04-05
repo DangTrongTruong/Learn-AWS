@@ -1,0 +1,2 @@
+Bài 10: AWS IAM tạo người dùng quản lý AWS
+https://www.youtube.com/watch?v=2y1lwLL41HE&list=PLjCpH2Qpki-sTjdlYXE8AifSKQFa8ZL23&index=10

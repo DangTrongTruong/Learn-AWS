@@ -1,0 +1,14 @@
+Bài 5: Tạo SSH KEY trên AWS EC2 Linux🏃🏼‍♀️ Lab document
+Step1: Tạo user ( chuyển qua quyền root "sudo su - ví dụ tạo user yuki
+  + useradd yuki
+  + passwd 12345678
+ ) 
+- đăng nhập bằng user và password 
+- chuyển qua tài khoản yuki vừa add ( su - yuki)
+Step2: Tạo Public key & Private key
+$ ssh-keygen -t rsa
+$ cd /home/yuki/.ssh
+$ mv id_rsa.pub authorized_keys
+$ chmod 600 authorized_keys
+Step3: Đăng nhập thử
+Step4: visudo

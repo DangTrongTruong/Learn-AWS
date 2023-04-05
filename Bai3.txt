@@ -1,3 +1,4 @@
+Bài 3: Cách lệnh cơ bản trên AWS EC2 Linuxcd, ls, mkdir, cp, rm, history, pwd
 🏃🏼‍♀️ Lab document
 1. Tạo thư mục
 mkidr hanoi

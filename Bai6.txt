@@ -1,0 +1,27 @@
+Bài 6: Tạo web server Apache trên AWS EC2 Linux
+🏃🏼‍♀️ Lab document
+- Đăng ký tên miền (vd: namesilo.com)
+1. Cấu hình DNS (phân giải tên miền ra địa chỉ của máy chủ)
+- kiểm tra DNS cấu hinh ok chưa 
+- nslookup [tên miền đã đăng ký]
+2. Cài đặt Apache
+- truy cập vào server như bình thường bằng quyền root (sudo su -)
+- yum install httpd -y
+- service httpd start ( đẻ kiểm tra xem server chạy hay chưa gõ " telnet localhost 80 ", nếu chưa có telnet cần cài "yum íntall telnet")
+3. Mở firewall port 80
+- Vào sẻver AWS đã đăng ký 
+4. Cấu hình tên miền
+
+NameVirtualHost *:80
+
+{VirtualHost *:80}
+    ServerAdmin info@coderhanoi.com
+    DocumentRoot /var/www/html/tinhocthatladongian
+    ServerName tinhocthatladongian.coderhanoi.com
+    {Directory "/var/www/html/tinhocthatladongian"}      
+   Order deny,allow
+           Allow from all
+           AllowOverride All
+          Require all granted
+   {/Directory}
+{/VirtualHost}

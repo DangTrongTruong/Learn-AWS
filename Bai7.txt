@@ -1,0 +1,46 @@
+🏃🏼‍♀️ Lab document (quyền admin sudo su )
+Step1: Cài đặt mod ssl cho Apache
+yum -y install mod_ssl
+
+Step2:Cài đặt Cài đặt openssl
+yum install openssl
+
+Step3: Tạo private key
+Bài 7: Cài SSL miễn phí cho web server Apache trên AWS EC2 Linux
+mkdir -p /etc/httpd/conf/tinhocthatladongian-ssl
+cd /etc/httpd/conf/tinhocthatladongian-ssl
+openssl genrsa } server.key
+
+Step4: Tiếp theo, tạo file CSR, file CSR này được sử dụng khi cơ quan cấp chứng chỉ cấp chứng chỉ cho máy chủ
+openssl req -new -key server.key } server.csr
+
+Step5: Gửi file server.csr ở trên cho nhà cung cấp SSL(nơi bạn muốn mua SSL) bạn sẽ nhận được các file cerfiticate
+ví dụn mình dùng sslforfree để thực hành bài này
+
+Step6: Copy các file cerfiticate nhận được vào thư mục /etc/httpd/conf/tinhocthatladongian-ssl và change quyền cho các file này
+chown root:root  ca_bundle.crt
+chown root:root  certificate.crt
+chmod 600  ca_bundle.crt chown 600  certificate.crt
+
+
+Step7: Cấu hình apache
+{VirtualHost _default_:443}
+    SSLEngine On
+    ServerAdmin info@coderhanoi.com
+    DocumentRoot "/var/www/html/tinhocthatladongian/"
+    ServerName coderhanoi.com
+    SSLCertificateFile "/etc/httpd/conf/tinhocthatladongian-ssl/certificate.crt"
+    SSLCertificateChainFile "/etc/httpd/conf/tinhocthatladongian-ssl/ca_bundle.crt"
+    SSLCertificateKeyFile "/etc/httpd/conf/tinhocthatladongian-ssl/server.key"
+    {Directory "/var/www/html/tinhocthatladongian/"}        
+ Order deny,allow        
+ Allow from all        
+ AllowOverride All        
+ Require all granted
+   {/Directory}
+{/VirtualHost}
+
+Step:  Khởi động lại apache
+service restart httpd
+
+Step9:  Mở cổng 443 cho ssl trên firewall

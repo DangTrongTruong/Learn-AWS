@@ -1,0 +1,59 @@
+Bài 4: Tạo user/group và phân quyền file và folder trên AWS EC2 Linux
+🏃🏼‍♀️ Lab document
+1.Thao tác với user ( trước khi muốn tạo user phải truy cập vào quyền admin "sudo su -")
+- Tạo user
+useradd [tên user cần tạo]
+ví dụ
+useradd bao
+- Đặt mật khẩu cho user
+passwd  [tên user cần tạo]
+ví dụ: passwd bao
+- Xóa user
+userdel　[tên user cần tạo]
+ví dụ: userdel　bao
+2. Thao tác với nhóm
+- Tạo nhóm
+groupadd ketoan
+
+- Thêm user vào group 
+usermod -a -G  groupname username
+usermod -a -G ketoan bao
+
+- Kiểm tra xem user đã nằm trong group hay chưa
+id bao
+
+3. File and folder permission
+- Kiểm tra permisson hiện tại
+ls -la
+
+d rwx rwx ---  3 root     ketoan    15 Mar 16 07:05 data-ketoan
+-rw-r--r--  1 root     root       4 Mar 16 07:43 hellotxt
+
+- Thứ tự phân quyền user/group/other
+d: là thư mục
+r = read permission
+w = write permission
+x = execute permission
+- = no permission
+https://www.guru99.com/file-permissio...
+
+- Set permission cho file and folder
+
+Bản phân quyền
+No.   Permission Type   Symbol
+0  No Permission   ---
+1  Execute     --x
+2  Write     -w-
+3  Execute + Write   -wx
+4  Read     r--
+5  Read + Execute   r-x
+6  Read + Write          rw-
+7  Read + Write +Execute rwx
+
+Lệnh set quyền cho file và folder
+chmod [quyền] [tên file hoặc thư mục]
+ví dụ: chmod -Rf 777 ketoan
+
+- Lệnh gán quyền cho user và group ( chuyển quyền )
+chown [tên user]: [tên nhòm] [tên file hoặc thư mục]
+ví dụ: chown -Rf bao:bao ketoan
