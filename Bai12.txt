@@ -1,0 +1,17 @@
+Bài 12: AWS RDB Cơ sở dữ liệuCài EC2 và wordpress để test RDS
+🏃🏼‍♀️ Lab document
+1. Tạo DB MySQL RDS
+2. Tạo kết nối tới DB từ xa
+3. Cài EC2 và wordpress để test RDS
+#!/bin/bash
+yum install httpd php php-mysql -y
+cd /var/www/html
+wget https://wordpress.org/wordpress-5.1.1...
+tar -xzf wordpress-5.1.1.tar.gz
+cp -r wordpress/* /var/www/html/
+rm -rf wordpress
+rm -rf wordpress-5.1.1.tar.gz
+chmod -R 755 wp-content
+chown -R apache:apache wp-content
+service httpd start
+chkconfig httpd on
