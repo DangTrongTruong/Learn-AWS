@@ -1,0 +1,3 @@
+Bài 13: Elastic IP Address cấu hình IP tĩnh trên AWS/EC2
+- Lý do cần báo giá khách hàng chức năng Elastic IP ngay từ đầu là do khi stop server thì ip public sẽ bị thay đổi ( như vậy sẽ phải cấu hình lại DNS ) nên cần sử dụng elastic IP để có định IP kể cả
+khi stop server 

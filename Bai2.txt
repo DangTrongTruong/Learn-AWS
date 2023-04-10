@@ -1,0 +1,17 @@
+Bài 2: Cách sử dụng vi editor trên AWS EC2 Linux
+🏃🏼‍♀️ Lab document
+1. Tạo file
+vi hello.txt
+bấm phím i trên bàn phím và bắt đầu soạn thảo nội dung file
+2. Save file
+2.1 save và thoát
+Gõ tổ hợp phím ESC và phím :
+sau đó gõ vào   wq! và bấm Enter
+2.2 Chỉ lưu
+Gõ tổ hợp phím ESC và phím :
+sau đó gõ vào   w và bấm Enter
+2.3 Thoát không lưu
+Gõ tổ hợp phím ESC và phím :
+sau đó gõ vào   q! và bấm Enter
+2.4 Undo nội dung đã soạn thảo
+Gõ tổ hợp phím ESC và phím U

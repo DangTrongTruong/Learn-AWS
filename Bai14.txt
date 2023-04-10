@@ -1,0 +1,41 @@
+Bài 14: Cài đặt web server NginxTrên AWS/EC2
+🏃🏼‍♀️ Lab document
+1. Cấu hình Virtual host http thường
+server {
+    listen        80;
+    server_name   tinhocthatladongian.coderhanoi.com;
+    access_log    /var/log/nginx/tinhocthatladongian.coderhanoi.com.access.log main;
+    error_log    /var/log/nginx/tinhocthatladongian.coderhanoi.com.error.log;
+    root /var/www/tinhocthatladongian.coderhanoi.com;
+    index index.php;
+    location ~ \.php$ {
+        root           /var/www/tinhocthatladongian.coderhanoi.com;        
+  fastcgi_pass   unix:/run/php-fpm/www.sock;
+        fastcgi_index  index.php;
+        fastcgi_param  SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        include        fastcgi_params;
+    }
+}
+
+2. Cấu hình Virtual host ssl https
+ server {
+    listen 80;
+ listen 443;
+ 
+ ssl on;
+ ssl_certificate      /path/tinhocthatladongian.coderhanoi.com.crt;　
+ ssl_certificate_key  /path/tinhocthatladongian.coderhanoi.com.key;
+ 
+    server_name   tinhocthatladongian.coderhanoi.com;
+    access_log    /var/log/nginx/tinhocthatladongian.coderhanoi.com.access.log main;
+    error_log    /var/log/nginx/tinhocthatladongian.coderhanoi.com.error.log;
+    root /var/www/tinhocthatladongian.coderhanoi.com;
+    index index.php;
+    location ~ \.php$ {
+        root           /var/www/tinhocthatladongian.coderhanoi.com;        
+  fastcgi_pass   unix:/run/php-fpm/www.sock;
+        fastcgi_index  index.php;
+        fastcgi_param  SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        include        fastcgi_params;
+    }
+}
