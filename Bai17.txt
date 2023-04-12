@@ -1,0 +1,33 @@
+Bài 17: DynamonDB NoSQL trên AWS Cloud
+🏃🏼‍♀️ Lab document
+Command Line(CLI)
+- Tạo bảng
+aws dynamodb create-table --table-name 'hocsinh' \
+--attribute-definitions '[{"AttributeName":"mahocsinh","AttributeType": "S"}]' \
+--key-schema '[{"AttributeName":"mahocsinh","KeyType": "HASH"}]' \
+--provisioned-throughput '{"ReadCapacityUnits": 5,"WriteCapacityUnits": 5}'
+
+- Insert data vào bảng
+aws dynamodb put-item --table-name hocsinh --item '{ "mahocsinh": { "S": "a001" }, "hoten": { "S": "Nguyen QUoc Bao" }, "ngaysinh": { "S": "1989-01-23"} }'
+aws dynamodb put-item --table-name hocsinh --item '{ "mahocsinh": { "S": "a002" }, "hoten": { "S": "Nguyen Van Doanh" }, "ngaysinh": { "S": "2000-01-11"} }'
+
+- Lấy data bằng Scan
+aws dynamodb scan --table-name hocsinh
+
+- Lấy data theo điều kiện
+aws dynamodb get-item --table-name hocsinh  --key '{ "mahocsinh": {"S": "a001" }  }'
+
+- Xoa record theo điều kiện
+aws dynamodb delete-item --table-name hocsinh  --key '{"mahocsinh": {"S": "a001"}}'
+
+- Đếm số records
+aws dynamodb scan --table-name hocsinh --select "COUNT"
+
+- Xóa bảng
+aws dynamodb delete-table --table-name hocsinh
+
+- List bảng đang có
+aws dynamodb list-tables
+
+- Xem thuộc tính của bảng
+aws dynamodb describe-table --table-name hocsinh

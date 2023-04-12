@@ -1,0 +1,4 @@
+Bài 15: Thiết lập AWS Cloudfront CDN trên AWS/EC2
+- AWS Cloudfront CDN dùng để làm gì : Nó có tác dụng cache lại dữ liệu sau lần đầu truy vấn dư liệu
+ để lần thứ 2 gọi lên server sẽ không cần query dữ liệu nữa mà sử dụng dữ liệub cache luôn giúp tăng tốc độ cũng như trải nghiệm cho người dùng
+ 
