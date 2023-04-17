@@ -1,0 +1,13 @@
+Bài 23: AWS CodeCommit / Devops quản lý source code bằng GIT trên AWS Cloud
+🏃🏼‍♀️ Lab document
+1. Tạo User để sử dụng cho git IAM
+2. Tạo repository 
+3. Cài AWS CLI trên windows
+     aws configure
+4. Cài và cấu hình Git client trên Windows
+git config --global credential.helper "!aws codecommit credential-helper $@"
+git config --global credential.UseHttpPath true
+5. Các thao tác với GIT
+Clone
+Commit
+Push

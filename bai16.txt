@@ -1,1 +1,2 @@
 Bài 16: AWS Route53 đăng ký tên miền và cấu hình DNS trên AWS Cloud
+- Route53 cos nhiệm vụ quản lý DNS và đăng ký DNS (DNS phân giải từ tên miền ra địa chỉ IP mà bạn đã thuê)

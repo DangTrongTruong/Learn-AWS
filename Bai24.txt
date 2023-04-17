@@ -1,0 +1,18 @@
+Bài 24: (CI/CD) Pipeline / Devops tự động deploy code PHP, Nodejs, Python trên AWS
+🏃🏼‍♀️ Lab document
+1. Tạo CodeCommit
+http://tinhocthatladongian.com/downlo...
+2. Tạo Role cho EC2 có quyền access vào S3
+3. Tạo Role CodeDeploy
+Cài EC2 để deploy code
+#!/bin/bash
+yum -y update
+yum install -y ruby
+yum install -y aws-cli
+cd /home/ec2-user
+aws s3 cp s3://aws-codedeploy-us-east-2/latest/install . --region us-east-2
+chmod +x ./install
+./install auto
+4. Tạo CodeDeploy
+5. Tạo CodePipeline
+Test deploy tự động

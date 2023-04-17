@@ -1,0 +1,2 @@
+Bài 22: AWS Email Marketing SES trên AWS Cloud
+https://youtu.be/x2wAyudKf4U

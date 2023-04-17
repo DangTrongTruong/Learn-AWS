@@ -1,0 +1,2 @@
+Bài 18: Lập trình 1 Lambda Serverless trên AWS Cloud
+Ý nghĩa khi lập trình xong mình sẽ chạy trên 1 nền tảng cloud
